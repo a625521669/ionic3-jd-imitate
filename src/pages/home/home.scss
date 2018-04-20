@@ -1,3 +1,51 @@
 page-home {
-
+    .banner-sliders {
+        height: 200px;
+    }
+    .menu {
+        ion-col {
+            a {
+                display: inline-block;
+                text-decoration: none;
+                .menu-item-des {
+                    text-align: center;
+                    color: #000;
+                }
+            }
+        }
+    }
+    .products {
+        display: flex;
+        justify-content: flex-start;
+        .products-item {
+            display: inline-block;
+            padding: 5px;
+            flex-shrink: 0;
+            width: 100px;
+            .products-price {
+                .new-price {
+                    color: red;
+                    font-size: 18px;
+                    line-height: 14px;
+                    text-align: center;
+                }
+                .old-price {
+                    text-align: center;
+                }
+            }
+        }
+    }
+    .miaosha-title {
+        color: red;
+        font-size: 20px;
+    }
+    .product-list {
+        a {
+            display: block;
+            box-sizing: border-box;
+            padding: 10px; 
+            width: 50%;
+            float: left; 
+        }
+    }
 }

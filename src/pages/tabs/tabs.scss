@@ -1,0 +1,9 @@
+page-home{
+    .tab-button[aria-selected=true] .tab-button-icon{
+        color: red !important;
+    }
+
+    .tab-button[aria-selected=true]{
+        color: red !important;
+    }
+}
