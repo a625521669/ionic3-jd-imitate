@@ -31,6 +31,7 @@ page-home {
                 }
                 .old-price {
                     text-align: center;
+                    text-decoration: line-through;
                 }
             }
         }
@@ -43,9 +44,39 @@ page-home {
         a {
             display: block;
             box-sizing: border-box;
-            padding: 10px; 
+            padding: 10px;
             width: 50%;
-            float: left; 
+            float: left;
+            color: #000;
+            text-decoration: none;
+        }
+        .products-price {
+            .new-price {
+                color: red;
+                font-size: 18px;
+                line-height: 14px;
+                text-align: center;
+            }
+            .old-price {
+                text-align: center;
+                text-decoration: line-through;
+            }
+        }
+    }
+    .search {
+        position: fixed;
+        top:0;
+        display: flex;
+        justify-content: space-between;
+        z-index: 99;
+        width: 100%;
+        padding: 0 10px 0 10px; 
+        
+        ion-icon { 
+            font-size: 3.2em;
+            position: relative;
+            top: 0.1em;
+            color: #fff; 
         }
     }
 }

@@ -1,4 +1,10 @@
 <ion-content>
+  <div class="search">
+    <ion-icon name="qr-scanner"></ion-icon>
+    <ion-searchbar (ionInput)="onCancel($event)"></ion-searchbar>
+    <ion-icon name="ios-chatbubbles-outline"></ion-icon>
+  </div>
+
   <ion-slides class="banner-sliders" pager autoplay="2000" loop="true">
     <ion-slide>
       <a href="https://pro.m.jd.com/mall/active/3qrbdwuaxTcjwU37N2sZthzNMeGt/index.html">
@@ -190,14 +196,15 @@
     <img src="https://m.360buyimg.com/mobilecms/jfs/t18550/330/1849130085/141145/261ffb05/5ad89279N08cafaae.jpg!q70.jpg" alt="">
   </a>
 
-  <div class="product-list">
-    <a href="https://pro.m.jd.com/mall/active/3qrbdwuaxTcjwU37N2sZthzNMeGt/index.html" *ngFor="let item of items">
-      <img src="{{item}}" alt="">
-    </a>
-  </div>
+  <page-shared-productlist [items]="items"></page-shared-productlist>
 
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
     <ion-infinite-scroll-content loadingText="Loading more data...">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="下拉刷新..." refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
 </ion-content>

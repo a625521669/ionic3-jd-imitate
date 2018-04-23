@@ -1,19 +1,50 @@
 import { Component } from '@angular/core';
-import { NavController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+/**
+ * Generated class for the CatalogsPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
+@IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-catalogs',
+  templateUrl: 'catalogs.html',
 })
-export class HomePage {
+
+export class CatalogsPage {
+  menulist = [
+     { id: 0, name: '宠物生活'},
+     { id: 1, name: '农资绿植'},
+     { id: 2, name: '礼品鲜花'},
+     { id: 3, name: '内衣配饰'},
+     { id: 4, name: '全球购'},
+     { id: 5, name: '女装'},
+     { id: 6, name: '男装'},
+     { id: 7, name: '女鞋'},
+     { id: 8, name: '男鞋'},
+     { id: 9, name: '家用电器'},
+     { id: 10, name: '国际名牌'},
+     { id: 11, name: '艺术品'},
+     { id: 12, name: '玩具乐器'},
+     { id: 13, name: '运动户外'},
+     { id: 14, name: '汽车用品'},
+     { id: 15, name: '京东金融'},
+     { id: 16, name: '二手商品'},
+     { id: 17, name: '房产'},
+     { id: 18, name: '拍卖'},
+     { id: 19, name: '特产'},
+  ];
+  
+  selectedMenuId = 0;
+
   items = [
     '//img12.360buyimg.com/babel/s240x240_jfs/t17884/226/1436672658/351359/f89c11df/5acb0ab5N301bc637.jpg!q90.webp',
     '//img11.360buyimg.com/babel/s240x240_jfs/t7462/4/3638811286/68260/b2fba430/59f97360Na4971951.jpg!q90.webp',
     '//img11.360buyimg.com/babel/s240x240_jfs/t5458/1/291195524/167032/e8e5cc7b/58fcc4c8Ne505de1d.jpg!q90.webp',
     '//img11.360buyimg.com/babel/s240x240_jfs/t7963/29/2521844274/36935/ece0d5f6/59b0c263N98d7bdc6.jpg!q90.webp',
-  ];
-
-  allImages = [
     '//img11.360buyimg.com/babel/s240x240_jfs/t19723/192/784478915/476844/a53e7c19/5aa76d7aN7267ad22.jpg!q90.webp',
     '//img12.360buyimg.com/babel/s240x240_jfs/t17575/31/1088279623/390831/182bfcaf/5abc4eb9N348e1a5a.jpg!q90.webp',
     '//img20.360buyimg.com/babel/s240x240_jfs/t17953/56/1739680714/177828/e09ada28/5ad5b8caN0103c6ad.jpg!q90.webp',
@@ -24,39 +55,16 @@ export class HomePage {
     '//img12.360buyimg.com/babel/s240x240_jfs/t19015/129/1682287815/203952/d24cf81d/5ad40420N30a8fd8a.jpg!q90.webp'
   ];
 
-  constructor(public navCtrl: NavController, private toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  doInfinite(infiniteScroll) {
-
-
-    setTimeout(() => {
-      for (var i = 0; i < 4; i++) {
-        var index = (Math.random() * 7).toFixed(0);
-        this.items.push(this.allImages[index]);
-      }
-
-      console.log('Async operation has ended');
-      infiniteScroll.complete();
-    });
+  menuClick(id){
+    this.selectedMenuId = id;
+    this.items = this.items.reverse();
   }
-
-  doRefresh(refresher) {
-    setTimeout(() => {
-      let toast = this.toastCtrl.create({
-        message: '刷新成功',
-        duration: 1500,
-        position: 'top'
-      });
-    
-      toast.onDidDismiss(() => {
-        console.log('Dismissed toast');
-      });
-    
-      toast.present();
-
-      refresher.complete();
-    }, 2000);
+  
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad CatalogsPage');
   }
 
 }
